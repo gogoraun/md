@@ -8,7 +8,7 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    if: github.repository == 'gogoraun/md'
+    if: github.repository == 'doocs/md'
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -21,7 +21,7 @@ jobs:
           node-version: 20
 
       - name: Install dependencies
-        run: npm install && npm install remark-pangu
+        run: npm install
 
       - name: Build
         run: npm run build
