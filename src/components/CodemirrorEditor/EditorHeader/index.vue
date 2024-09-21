@@ -83,7 +83,7 @@ const formatItems = [
 const store = useStore()
 const displayStore = useDisplayStore()
 
-const { isDark, isCiteStatus, output, primaryColor } = storeToRefs(store)
+const { isDark, isCiteStatus, output, primaryColor, editor } = storeToRefs(store)
 
 const { toggleDark, editorRefresh, citeStatusChanged } = store
 
@@ -153,6 +153,10 @@ function copy() {
       emit(`endCopy`)
     })
   }, 350)
+}
+
+function clear() {
+  (editor.value!).setValue(``)
 }
 
 function customStyle() {
@@ -468,6 +472,11 @@ function customStyle() {
         </div>
       </PopoverContent>
     </Popover>
+
+    <Button variant="outline" class="mx-2" @click="clear">
+      清空
+    </Button>
+
     <Button variant="outline" class="mx-2" @click="copy">
       复制
     </Button>
