@@ -44,6 +44,11 @@ export const fontSizeOptions: IConfigOption[] = [
     value: `16px`,
     desc: `更大`,
   },
+  {
+    label: `17px`,
+    value: `17px`,
+    desc: `超大`,
+  },
 ]
 
 export const colorOptions: IConfigOption[] = [
@@ -56,6 +61,11 @@ export const colorOptions: IConfigOption[] = [
     label: `翡翠绿`,
     value: `#009874`,
     desc: `自然平衡`,
+  },
+  {
+    label: `微信绿`,
+    value: `#1AAD19`,
+    desc: `微信绿色`,
   },
   {
     label: `活力橘`,

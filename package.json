@@ -43,6 +43,8 @@
     "pinia": "^2.2.2",
     "qiniu-js": "^3.4.2",
     "radix-vue": "^1.9.5",
+    "remark": "^15.0.1",
+    "remark-pangu": "^2.2.0",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",
     "tiny-oss": "^0.5.1",

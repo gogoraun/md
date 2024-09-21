@@ -9,6 +9,8 @@ import CodeMirror from 'codemirror'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { marked } from 'marked'
 import { defineStore } from 'pinia'
+import { remark } from 'remark'
+import remarkPangu from 'remark-pangu'
 import { computed, markRaw, onMounted, ref, toRaw, watch } from 'vue'
 
 export const useStore = defineStore(`store`, () => {
@@ -137,9 +139,10 @@ export const useStore = defineStore(`store`, () => {
 
   // 更新编辑器
   const editorRefresh = () => {
+    const processed = remark().use(remarkPangu).processSync(editor.value!.getValue())
     codeThemeChange()
     renderer.reset({ status: isCiteStatus.value, legend: legend.value })
-    let outputTemp = marked.parse(editor.value!.getValue()) as string
+    let outputTemp = marked.parse(processed.toString()) as string
 
     // 去除第一行的 margin-top
     outputTemp = outputTemp.replace(/(style=".*?)"/, `$1;margin-top: 0"`)
